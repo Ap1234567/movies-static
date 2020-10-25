@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!--  -->>
     <!--https://github.com/joshbuchea/HEAD#recommended-minimum-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,8 +10,8 @@
     <link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="/static/images/favicon.ico">
-    <script type="text/javascript">
+    <!--link rel="shortcut icon" href="/static/images/favicon.ico"-->
+    <script>
       var images = ["static/images/django.jfif", "static/images/forrestGump.jfif", "static/images/rocky.jfif", "static/images/titanic.jfif"];
       function changeImage()
     {
@@ -66,7 +67,7 @@ body{
     color: black;
     font-family: 'Lobster', cursive;
     padding: 3px;
-    display: flexbox;
+    display: flex;
 }
 
 .info{
@@ -139,11 +140,11 @@ img{
   <body onload="changeImage()">
     <div class="presentation">
       <div class="info">
-        <h1 class="headline">Find Your Perfect Movie <img id="film" src="static/images/film.jfif"></h1>
+        <h1 class="headline">Find Your Perfect Movie <img id="film" src="static/images/film.jfif" alt="film"></h1>
         <div id="search">
             <form id="search-form" class="form-inline" method="GET" action="/">
                 <input id="name" name="name" type="text" placeholder="name" class="form-control" autofocus>
-                <div class="year-ln">
+                <div id="year" class="year-ln">
                 <label for="year">year: </label>
                 <select name="year" class="form-control">
                   <option>Choose...</option>
@@ -159,16 +160,16 @@ img{
                 <!--{% if not chosen_movie %}-->
                 <div class="multiple result"> 
                     <!--{% for movie in movies %}-->
-                      <a href="/view_image/{{movie['Title']}}"><img src="{{movie['Poster']}}" alt="{{movie['Title'] | title}} image"></a>
+                      <a href="/view_image/rocky"><img src="static/images/rocky.jfif" alt="{{movie['Title'] | title}} image"></a>
                     <!--{% endfor %}-->
                 </div>
                 <!--{% else %}-->
                   <div class="one result" data-result-id="1">
                     <div class="left side">
-                      <img class="poster" src="{{chosen_movie['Poster']}}" alt="{{chosen_movie['Title'] | title}} image">
+                      <img class="poster" src="static/images/django.jfif" alt="{{chosen_movie['Title'] | title}} image">
                     </div>
                     <div class="right side">
-                    <h3 class="name">{{chosen_movie['Title']}}</h4><br>
+                    <h3 class="name">{{chosen_movie['Title']}}</h3><br>
                     <p class="plot">{{chosen_movie['Plot']}}</p>
                     <p class="other information">
                       <!--{% for key, value in chosen_movie.items() %}-->
@@ -189,7 +190,7 @@ img{
           </div>
           <div class="right side">
             <div class="changingPoster">
-            <img id="frontImage" src="static/images/django.jfif" height="275px" width="200px" alt="some text"></div>
+            <img id="frontImage" src="static/images/django.jfif" height="275" width="200" alt="some text"></div>
         </div>
     </div>
   </body>
